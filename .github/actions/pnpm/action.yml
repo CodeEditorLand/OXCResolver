@@ -1,0 +1,26 @@
+name: Pnpm
+
+description: Install pnpm
+
+runs:
+  using: composite
+  steps:
+    - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4.1.0
+
+    - uses: actions/setup-node@cdca7365b2dadb8aad0a33bc7601856ffabcc48e # v4.3.0
+      with:
+        node-version-file: .node-version
+        cache: pnpm
+
+    - name: pnpm
+      shell: bash
+      run: |
+        corepack enable
+        pnpm install
+
+    - name: yarn
+      shell: bash
+      run: |
+        cd fixtures/pnp
+        corepack enable
+        yarn install
