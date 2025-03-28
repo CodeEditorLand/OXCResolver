@@ -1,9 +1,31 @@
 {
 	"name": "@codeeditorland/resolver",
+	"version": "0.0.1",
+	"private": false,
 	"description": "Oxc Resolver Node API",
+	"keywords": [
+		"codeeditorland",
+		"land",
+		"playform"
+	],
+	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/OXCResolver#readme",
+	"bugs": {
+		"url": "HTTPS://GitHub.Com/CodeEditorLand/OXCResolver/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+HTTPS://github.com/CodeEditorLand/OXCResolver.git"
+	},
 	"funding": {
 		"url": "https://github.com/sponsors/Boshen"
 	},
+	"license": "SEE LICENSE IN LICENSE",
+	"author": {
+		"name": "Source 🖋️ Open 👐🏻",
+		"email": "Source/Open@Editor.Land",
+		"url": "HTTPS://Editor.Land"
+	},
+	"type": "module",
 	"main": "index.js",
 	"browser": "browser.js",
 	"files": [
@@ -11,8 +33,16 @@
 		"index.js",
 		"browser.js"
 	],
+	"scripts": {
+		"prepublishOnly": "Build 'Source/**/*.ts'"
+	},
 	"dependencies": {},
-	"devDependencies": {},
+	"devDependencies": {
+		"@playform/build": "0.2.1"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
 	"napi": {
 		"binaryName": "resolver",
 		"packageName": "@oxc-resolver/binding",
