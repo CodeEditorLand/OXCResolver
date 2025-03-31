@@ -5,7 +5,7 @@
 //! * [normalize_path](https://docs.rs/normalize-path)
 use std::path::{Component, Path, PathBuf};
 
-pub const SLASH_START:&[char; 2] = &['/', '\\'];
+pub const SLASH_START: &[char; 2] = &['/', '\\'];
 
 /// Extension trait to add path normalization to std's [`Path`].
 pub trait PathUtil {
@@ -22,7 +22,7 @@ pub trait PathUtil {
 	/// All redundant separator and up-level references are collapsed.
 	///
 	/// However, this does not resolve links.
-	fn normalize_with<P:AsRef<Path>>(&self, subpath:P) -> PathBuf;
+	fn normalize_with<P: AsRef<Path>>(&self, subpath: P) -> PathBuf;
 
 	/// Defined in ESM PACKAGE_TARGET_RESOLVE
 	/// If target split on "/" or "\" contains any "", ".", "..", or
@@ -66,7 +66,7 @@ impl PathUtil for Path {
 	}
 
 	// https://github.com/parcel-bundler/parcel/blob/e0b99c2a42e9109a9ecbd6f537844a1b33e7faf5/packages/utils/node-resolver-rs/src/path.rs#L37
-	fn normalize_with<B:AsRef<Self>>(&self, subpath:B) -> PathBuf {
+	fn normalize_with<B: AsRef<Self>>(&self, subpath: B) -> PathBuf {
 		let subpath = subpath.as_ref();
 
 		let mut components = subpath.components();
@@ -100,13 +100,11 @@ impl PathUtil for Path {
 	}
 
 	fn is_invalid_exports_target(&self) -> bool {
-		self.components().enumerate().any(|(index, c)| {
-			match c {
-				Component::ParentDir => true,
-				Component::CurDir => index > 0,
-				Component::Normal(c) => c.eq_ignore_ascii_case("node_modules"),
-				_ => false,
-			}
+		self.components().enumerate().any(|(index, c)| match c {
+			Component::ParentDir => true,
+			Component::CurDir => index > 0,
+			Component::Normal(c) => c.eq_ignore_ascii_case("node_modules"),
+			_ => false,
 		})
 	}
 }

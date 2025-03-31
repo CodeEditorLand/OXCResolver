@@ -4,15 +4,17 @@ use crate::error::SpecifierError;
 
 #[derive(Debug)]
 pub struct Specifier<'a> {
-	path:Cow<'a, str>,
-	pub query:Option<&'a str>,
-	pub fragment:Option<&'a str>,
+	path: Cow<'a, str>,
+	pub query: Option<&'a str>,
+	pub fragment: Option<&'a str>,
 }
 
 impl<'a> Specifier<'a> {
-	pub fn path(&'a self) -> &'a str { self.path.as_ref() }
+	pub fn path(&'a self) -> &'a str {
+		self.path.as_ref()
+	}
 
-	pub fn parse(specifier:&'a str) -> Result<Self, SpecifierError> {
+	pub fn parse(specifier: &'a str) -> Result<Self, SpecifierError> {
 		if specifier.is_empty() {
 			return Err(SpecifierError::Empty(specifier.to_string()));
 		}
@@ -31,13 +33,10 @@ impl<'a> Specifier<'a> {
 		Ok(Self { path, query, fragment })
 	}
 
-	fn parse_query_framgment(
-		specifier:&'a str,
-		skip:usize,
-	) -> (Cow<'a, str>, Option<&'a str>, Option<&'a str>) {
-		let mut query_start:Option<usize> = None;
+	fn parse_query_framgment(specifier: &'a str, skip: usize) -> (Cow<'a, str>, Option<&'a str>, Option<&'a str>) {
+		let mut query_start: Option<usize> = None;
 
-		let mut fragment_start:Option<usize> = None;
+		let mut fragment_start: Option<usize> = None;
 
 		let mut prev = specifier.chars().next().unwrap();
 

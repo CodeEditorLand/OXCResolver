@@ -2,7 +2,7 @@
 ///
 /// `node -p "[...require('module').builtinModules].map(b =>
 /// JSON.stringify(b)).join(',\n')"` <https://nodejs.org/api/modules.html#core-modules>
-pub const NODEJS_BUILTINS:&[&str] = &[
+pub const NODEJS_BUILTINS: &[&str] = &[
 	"_http_agent",
 	"_http_client",
 	"_http_common",
