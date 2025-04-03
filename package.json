@@ -33,9 +33,9 @@
 	"dependencies": {},
 	"devDependencies": {
 		"@napi-rs/cli": "3.0.0-alpha.76",
-		"@napi-rs/wasm-runtime": "0.2.7",
+		"@napi-rs/wasm-runtime": "0.2.8",
 		"@playform/build": "0.2.1",
-		"@types/node": "22.13.14",
+		"@types/node": "22.14.0",
 		"emnapi": "1.4.0"
 	},
 	"publishConfig": {
