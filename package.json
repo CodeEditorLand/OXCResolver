@@ -28,11 +28,11 @@
   },
   "devDependencies": {
     "@napi-rs/cli": "3.0.0-alpha.79",
-    "@napi-rs/wasm-runtime": "^0.2.10",
-    "@types/node": "^22.15.30",
+    "@napi-rs/wasm-runtime": "^0.2.11",
+    "@types/node": "^24.0.0",
     "emnapi": "^1.4.3",
     "typescript": "^5.8.3",
-    "vitest": "^3.2.2"
+    "vitest": "^3.2.3"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
